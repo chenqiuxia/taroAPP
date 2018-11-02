@@ -1,27 +1,32 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import './index.scss'
-import Welcome from '../../compoents/welcome'
+import Item from '../../compoents/Item'
 export default class Index extends Component {
 constructor () {
+  super()
   this.state = {
-    myName: 'chrislee'
+    myName: 'chrislee',
+    list: [
+      {description: 'this is a description about some lecense ', image: '../../image/01.png'},
+      {description: 'this is a description about some lecense ', image: '../../image/02.jpeg'}
+    ]
   }
 }
   config = {
-    navigationBarTitleText: '首页de'
+    navigationBarTitleText: '商品列表'
   }
 
-  componentWillMount () { 
-  
+  componentWillMount () {
+
   }
 
   componentDidMount () { }
 
   componentWillUnmount () { }
 
-  componentDidShow () { 
-    console.log('这里是页面开启吗？') 
+  componentDidShow () {
+    console.log('这里是页面开启吗？')
   }
 
   componentDidHide () {
@@ -29,9 +34,12 @@ constructor () {
    }
 
   render () {
+  const {myName }=  this.state
     return (
       <View className='index'>
-              <Welcome name={this.state.myName}/>
+        <View>
+          <Item name={myName}/>
+          <View/>
       </View>
     )
   }

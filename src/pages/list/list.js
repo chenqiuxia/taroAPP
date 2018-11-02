@@ -1,12 +1,15 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
-import './index.scss'
+import { WebView} from '@tarojs/components'
+import './list.scss'
+
 export default class Index extends Component {
   constructor() {
+    super()
     this.state = {
       list: []
     }
   }
+  onTap () {}
   config = {
     navigationBarTitleText: '首页de'
   }
@@ -29,9 +32,7 @@ export default class Index extends Component {
 
   render() {
     return (
-      <View >
-      <Text>list < /Text>
-        < /View>
+      <WebView src='https://mp.weixin.qq.com/'/>
     )
   }
 }
