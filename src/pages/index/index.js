@@ -1,15 +1,19 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View, Text ,Image} from '@tarojs/components'
 import './index.scss'
 import Item from '../../compoents/Item'
+import url01 from '../../asset/image/01.png'
+import url02 from '../../asset/image/02.jpeg'
+import url03 from '../../asset/image/03.jpg'
+
 export default class Index extends Component {
 constructor () {
-  super()
+  super(...arguments)
   this.state = {
-    myName: 'chrislee',
     list: [
-      {description: 'this is a description about some lecense ', image: '../../image/01.png'},
-      {description: 'this is a description about some lecense ', image: '../../image/02.jpeg'}
+      {description: 'one ', image: url01},
+      {description: 'two ', image: url02},
+      {description: 'two ', image: url03}
     ]
   }
 }
@@ -18,7 +22,6 @@ constructor () {
   }
 
   componentWillMount () {
-
   }
 
   componentDidMount () { }
@@ -32,14 +35,24 @@ constructor () {
   componentDidHide () {
     console.log('这里是页面关闭吗？')
    }
+  add () {
+  console.log('add the button')
+  }
 
   render () {
-  const {myName }=  this.state
     return (
       <View className='index'>
-        <View>
-          <Item name={myName}/>
-          <View/>
+        <View className='item-wrapper'>
+        {this.state.list.map((item) =>
+          (<View className='item'>
+          <Image src={item.image} className='item-image'></Image>
+            <View className='flex-wrap description-con'>
+              <Text className='item-text'><Text className='tips'>goods description:</Text>{item.description}</Text>
+            <Button className='add' onClick={this.add} plain type='primary' size='mini'>添加到购物车</Button>
+            </View>
+          </View>)
+        )}
+        </View>
       </View>
     )
   }

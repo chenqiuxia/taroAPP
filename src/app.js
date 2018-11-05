@@ -23,10 +23,10 @@ class App extends Component {
       borderStyle: 'white',
       list: [{
         pagePath: 'pages/index/index',
-        text: '首页'
+        text: '商品'
       },{
         pagePath: 'pages/list/list',
-        text: 'list'
+        text: '购物车'
       }]
     }
   }
@@ -43,7 +43,7 @@ class App extends Component {
   // 请勿修改此函数
   render () {
     return (
-      <Index />
+      <Index/>
     )
   }
 }

@@ -6,12 +6,12 @@ class Item extends Component {
     super(props)
   }
   render() {
-    const {image} = this.props.image
-    const {description} = this.props.description
+    // const {image} = this.props.image
+    // const {description} = this.props.description
     return (
       <View>
-        <Text>{description}</Text>
-        <Image src={image}></Image>
+        <Text>{this.props.description}</Text>
+        <Image src={this.props.image}></Image>
       </View>
     )
   }
